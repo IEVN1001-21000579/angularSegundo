@@ -1,8 +1,8 @@
-import { Routes } from '@angular/router';
+import { Route, Routes } from '@angular/router';
 
 export default[
     {
-        path: 'formulario',
+        path: 'ejemplo1',
         loadComponent: () => import('./ejemplo1.component'),
     }
 ] as Routes

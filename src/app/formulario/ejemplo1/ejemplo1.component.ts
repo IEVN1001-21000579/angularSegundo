@@ -14,6 +14,7 @@ interface Usuario{
   templateUrl: './ejemplo1.component.html',
   styles: ``
 })
+
 export default class Ejemplo1Component implements OnInit{
 
   formGroup!: FormGroup;
