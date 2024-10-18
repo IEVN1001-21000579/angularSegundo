@@ -1,7 +1,75 @@
-<div class="grid grid-cols-3 grid-rows-1 gap-4">
+<div class="grid grid-cols-3 grid-rows-1 gap-5">
     <div>
-        <div class="mb-5">
-            <h4>Primera Banda</h4>
-        </div>
+        <form class="max-w-sm mx-auto" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">Primera banda</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected formControlName="color1">Color</option>
+            <option value="negro">Negro</option>
+            <option value="cafe">Cafe</option>
+            <option value="rojo">Rojo</option>
+            <option value="naranja">Naranja</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="verde">Verde</option>
+            <option value="azul">Azul</option>
+            <option value="violeta">Violeta</option>
+            <option value="gris">Gris</option>
+            <option value="blanco">Blanco</option>
+            </select>
+        </form>
     </div>
+    <div>
+        <form class="max-w-sm mx-auto" [formGroup]="formGroup">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">Segunda banda</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected formControlName="color2">Color</option>
+            <option value="negro">Negro</option>
+            <option value="cafe">Cafe</option>
+            <option value="rojo">Rojo</option>
+            <option value="naranja">Naranja</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="verde">Verde</option>
+            <option value="azul">Azul</option>
+            <option value="violeta">Violeta</option>
+            <option value="gris">Gris</option>
+            <option value="blanco">Blanco</option>
+            </select>
+        </form>
+    </div>
+    <div>
+        <form class="max-w-sm mx-auto" [formGroup]="formGroup">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">Tercera banda</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected formControlName="color3">Color</option>
+            <option value="negro">Negro</option>
+            <option value="cafe">Cafe</option>
+            <option value="rojo">Rojo</option>
+            <option value="naranja">Naranja</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="verde">Verde</option>
+            <option value="azul">Azul</option>
+            <option value="violeta">Violeta</option>
+            <option value="gris">Gris</option>
+            <option value="blanco">Blanco</option>
+            </select>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div style="height: 50px;"></div>
+    <h4>Tolerancia</h4>
+    <br>
+    
+    <form [formGroup]="formGroup">
+        <div class="flex items-center mb-4">
+          <input id="default-radio-1" type="radio" value="oro" formControlName="tolerancia" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-900">Oro</label>
+        </div>
+        <div class="flex items-center">
+          <input id="default-radio-2" type="radio" value="plata" formControlName="tolerancia" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-900">Plata</label>
+        </div>
+    </form>
+      
+
 </div>
