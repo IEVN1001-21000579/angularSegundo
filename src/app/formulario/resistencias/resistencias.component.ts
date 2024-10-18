@@ -5,7 +5,7 @@ interface Resistencia{
   color1: string;
   color2: string;
   color3: string;
-  Tolercia: string;
+  tolerancia: string;
 }
 
 @Component({
@@ -17,13 +17,14 @@ interface Resistencia{
 })
 
 export default class ResistenciasComponent implements OnInit{
+
   formGroup!: FormGroup;
 
   resistencia: Resistencia = {
     color1: '',
     color2: '',
     color3: '',
-    Tolercia: ''
+    tolerancia: ''
   }
 
   constructor(private readonly fb: FormBuilder){
@@ -39,7 +40,7 @@ export default class ResistenciasComponent implements OnInit{
       color1: [''],
       color2: [''],
       color3: [''],
-      Tolercia: ['']
+      tolerancia: ['']
     });
   }
 
@@ -48,7 +49,7 @@ export default class ResistenciasComponent implements OnInit{
     this.resistencia.color1=color1;
     this.resistencia.color2=color2;
     this.resistencia.color3=color3;
-    this.resistencia.Tolercia=Tolercia;
+    this.resistencia.tolerancia=tolerancia;
 
     let resistenciaJSON = JSON.stringify(this.resistencia);
     localStorage.setItem("resistencia", resistenciaJSON);
