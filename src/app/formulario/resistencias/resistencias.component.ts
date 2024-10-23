@@ -20,6 +20,9 @@ interface ResistenciaCalculada extends ResistenciaGuardada {
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './resistencias.component.html',
+=======
+  templateUrl: './resistencia.component.html',
+  styleUrl: './resistencia.component.css'
 })
 export default class ResistenciaComponent implements OnInit {
   formGroup!: FormGroup;
@@ -66,6 +69,63 @@ export default class ResistenciaComponent implements OnInit {
     const resistenciasGuardadas = localStorage.getItem("resistencias");
     if (resistenciasGuardadas) {
       this.resistenciasGuardadas = JSON.parse(resistenciasGuardadas);
+=======
+
+  guardarResistencias(): void {
+    localStorage.setItem("resistencias", JSON.stringify(this.resistenciasGuardadas));
+  }
+
+  cargarResistencias(): void {
+    const resistenciasGuardadas = localStorage.getItem("resistencias");
+    if (resistenciasGuardadas) {
+      this.resistenciasGuardadas = JSON.parse(resistenciasGuardadas);
+    }
+  }
+
+  calcularResistencias(): void {
+    this.resistenciasCalculadas = this.resistenciasGuardadas.map(resistencia => {
+      const valor1 = this.obtenerValorColor(resistencia.color1) * 10 + this.obtenerValorColor(resistencia.color2);
+      const valor2 = this.obtenerValorMultiplicador(resistencia.color3);
+      const tolerancia2 = this.obtenerValorTolerancia(resistencia.tolerancia);
+      const valorResistencia = valor1 * valor2;
+      const ValorMaximo = valorResistencia + (valorResistencia * tolerancia2);
+      const ValorMinimo = valorResistencia - (valorResistencia * tolerancia2);
+
+      return {
+        ...resistencia,
+        valorResistencia,
+        ValorMaximo,
+        ValorMinimo
+      };
+    });
+  }
+
+  obtenerValorColor(color: string): number {
+    const colores: { [key: string]: number } = {
+      'black': 0, 'brown': 1, 'red': 2, 'orange': 3, 'yellow': 4,
+      'green': 5, 'blue': 6, 'violet': 7, 'gray': 8, 'white': 9
+    };
+    return colores[color.toLowerCase()] || 0;
+  }
+  
+  obtenerValorMultiplicador(color: string): number {
+    const multiplicadores: { [key: string]: number } = {
+      'black': 1, 'brown': 10, 'red': 100, 'orange': 1000,
+      'yellow': 10000, 'green': 100000, 'blue': 1000000,
+      'violet': 10000000, 'gray': 100000000, 'white': 1000000000
+    };
+    return multiplicadores[color.toLowerCase()] || 1;
+  }
+  
+
+  obtenerValorTolerancia(tolerancia: string): number {
+    return tolerancia === 'Oro' ? 0.05 : 0.1;
+  }
+
+  toggleTabla(): void {
+    this.mostrarTabla = !this.mostrarTabla;
+    if (this.mostrarTabla) {
+      this.calcularResistencias();
     }
   }
 
