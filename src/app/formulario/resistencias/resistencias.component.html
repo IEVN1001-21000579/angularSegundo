@@ -1,6 +1,6 @@
 <div class="p-10 justify-center">
-    <!-- Formulario -->
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="w-full max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
+
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class=" bg-white shadow-md rounded-lg p-6">
       <h2 class="text-xl font-bold mb-6 text-center">Calculadora de Resistencia</h2>
       <div class="mb-5">
         <label for="color1" class="block mb-2 text-sm font-medium text-gray-900">Primera Banda</label>
@@ -37,16 +37,16 @@
       <div class="mb-5">
         <label for="color3" class="block mb-2 text-sm font-medium text-gray-900">Tercera Banda (Multiplicador)</label>
         <select id="color3" formControlName="color3" class="w-full p-2.5 border border-gray-300 rounded-lg">
-          <option value="black" data-value="1" style="background-color: black; color: white;">Negro (×1)</option>
-          <option value="brown" data-value="10" style="background-color: brown; color: white;">Marrón (×10)</option>
-          <option value="red" data-value="100" style="background-color: red; color: white;">Rojo (×100)</option>
-          <option value="orange" data-value="1000" style="background-color: orange;">Naranja (×1K)</option>
-          <option value="yellow" data-value="10000" style="background-color: yellow;">Amarillo (×10K)</option>
-          <option value="green" data-value="100000" style="background-color: green; color: white;">Verde (×100K)</option>
-          <option value="blue" data-value="1000000" style="background-color: blue; color: white;">Azul (×1M)</option>
-          <option value="violet" data-value="10000000" style="background-color: violet;">Violeta (×10M)</option>
-          <option value="gray" data-value="100000000" style="background-color: gray;">Gris (×100M)</option>
-          <option value="white" data-value="1000000000" style="background-color: white;">Blanco (×1G)</option>
+          <option value="black" data-value="1" style="background-color: black; color: white;">Negro </option>
+          <option value="brown" data-value="10" style="background-color: brown; color: white;">Marrón </option>
+          <option value="red" data-value="100" style="background-color: red; color: white;">Rojo </option>
+          <option value="orange" data-value="1000" style="background-color: orange;">Naranja </option>
+          <option value="yellow" data-value="10000" style="background-color: yellow;">Amarillo </option>
+          <option value="green" data-value="100000" style="background-color: green; color: white;">Verde </option>
+          <option value="blue" data-value="1000000" style="background-color: blue; color: white;">Azul </option>
+          <option value="violet" data-value="10000000" style="background-color: violet;">Violeta </option>
+          <option value="gray" data-value="100000000" style="background-color: gray;">Gris </option>
+          <option value="white" data-value="1000000000" style="background-color: white;">Blanco  </option>
         </select>
       </div>
   
@@ -54,9 +54,9 @@
         <label class="block mb-2 text-sm font-medium text-gray-900">Tolerancia</label>
         <div class="flex items-center">
           <input type="radio" id="oro" formControlName="tolerancia" value="Oro" data-value="0.05" class="mr-2">
-          <label for="oro" class="mr-4" style="color: goldenrod;">Oro (±5%)</label>
+          <label for="oro" class="mr-4" style="color: goldenrod;">Oro</label>
           <input type="radio" id="plata" formControlName="tolerancia" value="Plata" data-value="0.1" class="mr-2">
-          <label for="plata" style="color: silver;">Plata (±10%)</label>
+          <label for="plata" style="color: silver;">Plata</label>
         </div>
       </div>
   
@@ -65,14 +65,13 @@
       </button>
     </form>
   
-     <!-- Botón Ver Tabla -->
-     <div class="col-span-2 text-center mt-4">
+
+     <div class="col-span-2  mt-4">
       <button (click)="toggleTabla()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         {{ mostrarTabla ? 'Ocultar Tabla' : 'Ver Tabla' }}
       </button>
     </div>
-  
-    <!-- Tabla (en un card) -->
+
     <div *ngIf="mostrarTabla" class="col-span-2 mt-8">
       <div class="bg-white shadow-md rounded-lg p-6">
         <table class="table-auto w-full border-collapse border border-gray-300">
@@ -95,9 +94,9 @@
               <td class="border px-4 py-2" [ngStyle]="{'background-color': resistencia.tolerancia === 'Oro' ? 'gold' : (resistencia.tolerancia === 'Plata' ? 'silver' : 'transparent')}">
                 {{ resistencia.tolerancia }}
               </td>
-              <td class="border px-4 py-2">{{ resistencia.valorResistencia | number:'1.2-2' }} Ω</td>
-              <td class="border px-4 py-2">{{ resistencia.ValorMaximo | number:'1.2-2' }} Ω</td>
-              <td class="border px-4 py-2">{{ resistencia.ValorMinimo | number:'1.2-2' }} Ω</td>
+              <td class="border px-4 py-2">{{ resistencia.valorResistencia | number:'1.2-2' }} </td>
+              <td class="border px-4 py-2">{{ resistencia.ValorMaximo | number:'1.2-2' }} </td>
+              <td class="border px-4 py-2">{{ resistencia.ValorMinimo | number:'1.2-2' }} </td>
             </tr>
             
           </tbody>

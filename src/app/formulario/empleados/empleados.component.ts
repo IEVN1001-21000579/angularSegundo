@@ -75,4 +75,11 @@ export default class EmpleadosComponent {
   mostrarTablaEmpleados(): void {
     this.mostrarTabla = !this.mostrarTabla;
   }
+
+  buscarEmpleado(matricula: string): void {
+    const empleado = this.empleadosGuardados.find((e) => e.matricula === matricula);
+    if (empleado) {
+      this.formGroup.patchValue(empleado);
+    }
+  }
 }
